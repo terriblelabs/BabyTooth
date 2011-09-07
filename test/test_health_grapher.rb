@@ -33,5 +33,28 @@ class TestHealthGrapher < Test::Unit::TestCase
 
       assert_equal "http://runkeeper.com/apps/token", HealthGrapher.configuration.access_token_url
     end
+
+    should "accept redirect_uri" do
+      HealthGrapher.configure do |config|
+        config.redirect_uri = "http://my.app/authorization"
+      end
+
+      assert_equal "http://my.app/authorization", HealthGrapher.configuration.redirect_uri
+    end
+  end
+
+  context "authorize_url" do
+    should "return a URL with the proper parameters" do
+      HealthGrapher.configure do |config|
+        config.access_token_url = "http://runkeeper.com/apps/token"
+        config.authorization_url = "http://runkeeper.com/apps/authorize"
+        config.client_secret = "SECRET"
+        config.client_id = "CLIENT_ID"
+        config.redirect_uri = "http://my.app/authorization"
+      end
+
+      assert_equal "http://runkeeper.com/apps/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=http%3A%2F%2Fmy.app%2Fauthorization",
+        HealthGrapher.authorize_url
+    end
   end
 end
