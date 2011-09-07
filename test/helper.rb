@@ -12,7 +12,8 @@ require 'shoulda'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'HealthGrapher'
+
+require 'health_grapher'
 
 class Test::Unit::TestCase
 end

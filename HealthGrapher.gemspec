@@ -25,9 +25,9 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/HealthGrapher.rb",
+    "lib/health_grapher.rb",
     "test/helper.rb",
-    "test/test_HealthGrapher.rb"
+    "test/test_health_grapher.rb"
   ]
   s.homepage = "http://github.com/terriblelabs/HealthGrapher"
   s.licenses = ["MIT"]
