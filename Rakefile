@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "HealthGrapher"
-  gem.homepage = "http://github.com/joelind/HealthGrapher"
+  gem.homepage = "http://github.com/terriblelabs/HealthGrapher"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A Ruby wrapper for the Health Graph API}
+  gem.description = %Q{A Ruby wrapper for the Health Graph API}
   gem.email = "joelind@gmail.com"
   gem.authors = ["Joe Lind"]
   # dependencies defined in Gemfile
