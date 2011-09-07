@@ -57,4 +57,25 @@ class TestHealthGrapher < Test::Unit::TestCase
         HealthGrapher.authorize_url
     end
   end
+
+  context "get_token" do
+    setup do
+      VCR.insert_cassette 'oauth/token success', :record => :none
+      HealthGrapher.configure do |config|
+        config.access_token_url = "http://runkeeper.com/apps/token"
+        config.authorization_url = "http://runkeeper.com/apps/authorize"
+        config.client_secret = "SECRET"
+        config.client_id = "ID"
+        config.redirect_uri = "http://steps.dev/authorization"
+      end
+    end
+
+    teardown do
+      VCR.eject_cassette
+    end
+
+    should "return an access token string" do
+      assert_equal "ACCESS_TOKEN", HealthGrapher.get_token("TOKEN")
+    end
+  end
 end

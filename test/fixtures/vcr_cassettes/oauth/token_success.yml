@@ -1,0 +1,55 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: http://runkeeper.com:80/apps/token
+    body: code=CODE&redirect_uri=http%3A%2F%2Fsteps.dev%2Fauthorization&client_secret=SECRET&client_id=ID&grant_type=authorization_code
+    headers: 
+      content-type: 
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 302
+      message: Moved Temporarily
+    headers: 
+      location: 
+      - https://runkeeper.com/apps/token
+      content-language: 
+      - en-US
+      server: 
+      - Apache-Coyote/1.1
+      date: 
+      - Wed, 07 Sep 2011 13:08:02 GMT
+      content-length: 
+      - "0"
+    body: 
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :post
+    uri: https://runkeeper.com:443/apps/token
+    body: code=CODE&redirect_uri=http%3A%2F%2Fsteps.dev%2Fauthorization&client_secret=SECRET&client_id=ID&grant_type=authorization_code
+    headers: 
+      content-type: 
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      connection: 
+      - keep-alive
+      content-type: 
+      - application/json;charset=ISO-8859-1
+      content-language: 
+      - en-US
+      server: 
+      - nginx/0.8.54
+      date: 
+      - Wed, 07 Sep 2011 13:05:31 GMT
+      content-length: 
+      - "73"
+      cache-control: 
+      - no-store
+    body: "{\"token_type\":\"Bearer\",\"access_token\":\"ACCESS_TOKEN\"}"
+    http_version: "1.1"

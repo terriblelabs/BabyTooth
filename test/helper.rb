@@ -13,6 +13,17 @@ require 'shoulda'
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
+require 'vcr'
+require 'webmock'
+
+WebMock.disable_net_connect!
+
+VCR.config do |config|
+  config.cassette_library_dir = 'test/fixtures/vcr_cassettes'
+  config.stub_with :webmock
+  config.default_cassette_options = { :record => :none }
+end
+
 require 'health_grapher'
 
 class Test::Unit::TestCase
