@@ -1,6 +1,6 @@
 require 'oauth2'
 
-module HealthGrapher
+module BabyTooth
   class << self
     attr_accessor :configuration
   end

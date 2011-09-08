@@ -24,7 +24,7 @@ VCR.config do |config|
   config.default_cassette_options = { :record => :none }
 end
 
-require 'health_grapher'
+require 'baby_tooth'
 
 class Test::Unit::TestCase
 end

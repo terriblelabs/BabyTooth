@@ -14,8 +14,8 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "HealthGrapher"
-  gem.homepage = "http://github.com/terriblelabs/HealthGrapher"
+  gem.name = "BabyTooth"
+  gem.homepage = "http://github.com/terriblelabs/BabyTooth"
   gem.license = "MIT"
   gem.summary = %Q{A Ruby wrapper for the Health Graph API}
   gem.description = %Q{A Ruby wrapper for the Health Graph API}
@@ -47,7 +47,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "HealthGrapher #{version}"
+  rdoc.title = "BabyTooth #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

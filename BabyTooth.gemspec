@@ -4,12 +4,12 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "HealthGrapher"
+  s.name = "BabyTooth"
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joe Lind"]
-  s.date = "2011-09-07"
+  s.date = "2011-09-08"
   s.description = "A Ruby wrapper for the Health Graph API"
   s.email = "joelind@gmail.com"
   s.extra_rdoc_files = [
@@ -20,16 +20,14 @@ Gem::Specification.new do |s|
     ".document",
     ".rvmrc",
     "Gemfile",
-    "HealthGrapher.gemspec",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
-    "lib/health_grapher.rb",
-    "test/helper.rb",
-    "test/test_health_grapher.rb"
+    "test/fixtures/vcr_cassettes/oauth/token_success.yml",
+    "test/helper.rb"
   ]
-  s.homepage = "http://github.com/terriblelabs/HealthGrapher"
+  s.homepage = "http://github.com/terriblelabs/BabyTooth"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.10"
@@ -44,12 +42,20 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<launchy>, [">= 0"])
+      s.add_development_dependency(%q<ruby-debug>, [">= 0"])
+      s.add_development_dependency(%q<webmock>, [">= 0"])
+      s.add_development_dependency(%q<vcr>, [">= 0"])
     else
       s.add_dependency(%q<oauth2>, ["~> 0.5.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<launchy>, [">= 0"])
+      s.add_dependency(%q<ruby-debug>, [">= 0"])
+      s.add_dependency(%q<webmock>, [">= 0"])
+      s.add_dependency(%q<vcr>, [">= 0"])
     end
   else
     s.add_dependency(%q<oauth2>, ["~> 0.5.0"])
@@ -57,6 +63,10 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<launchy>, [">= 0"])
+    s.add_dependency(%q<ruby-debug>, [">= 0"])
+    s.add_dependency(%q<webmock>, [">= 0"])
+    s.add_dependency(%q<vcr>, [">= 0"])
   end
 end
 
