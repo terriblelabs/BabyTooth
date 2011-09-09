@@ -4,7 +4,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = "BabyTooth"
+  s.name = "baby_tooth"
   s.version = "0.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
@@ -24,8 +24,10 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "lib/baby_tooth.rb",
     "test/fixtures/vcr_cassettes/oauth/token_success.yml",
-    "test/helper.rb"
+    "test/helper.rb",
+    "test/test_baby_tooth.rb"
   ]
   s.homepage = "http://github.com/terriblelabs/BabyTooth"
   s.licenses = ["MIT"]

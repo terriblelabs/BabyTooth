@@ -14,7 +14,7 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "BabyTooth"
+  gem.name = "baby_tooth"
   gem.homepage = "http://github.com/terriblelabs/BabyTooth"
   gem.license = "MIT"
   gem.summary = %Q{A Ruby wrapper for the Health Graph API}
