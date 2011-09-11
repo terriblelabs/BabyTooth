@@ -12,3 +12,4 @@ group :development do
 end
 
 gem 'oauth2', '~> 0.5.0'
+gem 'faraday-stack'

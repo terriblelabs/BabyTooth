@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joe Lind"]
-  s.date = "2011-09-08"
+  s.date = "2011-09-11"
   s.description = "A Ruby wrapper for the Health Graph API"
   s.email = "joelind@gmail.com"
   s.extra_rdoc_files = [
@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "baby_tooth.gemspec",
     "lib/baby_tooth.rb",
     "test/fixtures/vcr_cassettes/oauth/token_success.yml",
     "test/helper.rb",
@@ -40,6 +41,7 @@ Gem::Specification.new do |s|
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<oauth2>, ["~> 0.5.0"])
+      s.add_runtime_dependency(%q<faraday-stack>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -50,6 +52,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<vcr>, [">= 0"])
     else
       s.add_dependency(%q<oauth2>, ["~> 0.5.0"])
+      s.add_dependency(%q<faraday-stack>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -61,6 +64,7 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<oauth2>, ["~> 0.5.0"])
+    s.add_dependency(%q<faraday-stack>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
