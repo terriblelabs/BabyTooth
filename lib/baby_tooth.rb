@@ -1,6 +1,11 @@
 require 'oauth2'
 require 'faraday_stack'
 require 'json'
+require 'baby_tooth/client'
+require 'baby_tooth/user'
+require 'baby_tooth/profile'
+require 'baby_tooth/fitness_activity_feed'
+require 'baby_tooth/fitness_activity'
 
 module BabyTooth
   class << self
@@ -25,95 +30,6 @@ module BabyTooth
         :authorize_url => configuration.authorization_url,
         :token_url => configuration.access_token_url
     end
-  end
-
-  class Client
-    attr_accessor :access_token, :path
-
-    def [](key)
-      body[key]
-    end
-
-    def body
-      @body ||= retrieve_body
-    end
-
-    def initialize(access_token, path)
-      self.access_token = access_token
-      self.path = path
-    end
-
-    def resource_class_name
-      self.class.name.split('::').last
-    end
-
-    def self.exposes_keys(*keys)
-      keys.each do |key|
-        define_method key do
-          body[key.to_s]
-        end
-      end
-    end
-
-    protected
-
-    def retrieve_body
-      response = connection.get(path) do |request|
-        request.headers['Authorization'] = "Bearer #{access_token}"
-        request.headers['Accept'] = "application/vnd.com.runkeeper.#{resource_class_name}+json"
-      end
-
-      JSON.parse(response.body)
-    end
-
-    def connection
-      FaradayStack.build ::BabyTooth.configuration.site
-    end
-  end
-
-  class User < Client
-    exposes_keys 'fitness_activities'
-
-    def initialize(access_token)
-      super access_token, '/user'
-    end
-
-    def fitness_activity_feed
-      @fitness_activity_feed ||= FitnessActivityFeed.new(access_token, fitness_activities)
-    end
-
-    def street_team
-      @street_team ||= TeamFeed.new(access_token).members
-    end
-
-    def profile
-      @profile ||= Profile.new(access_token, self['profile'])
-    end
-  end
-
-  class Profile < Client
-    exposes_keys "name",
-      "small_picture",
-      "large_picture",
-      "medium_picture",
-      "elite",
-      "gender",
-      "athlete_type",
-      "normal_picture",
-      "profile"
-  end
-
-  class FitnessActivityFeed < Client
-    exposes_keys "items"
-
-    def fitness_activities
-      items.map do |item|
-        FitnessActivity.new access_token, item['uri']
-      end
-    end
-  end
-
-  class FitnessActivity < Client
   end
 
   private
