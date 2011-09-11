@@ -61,9 +61,12 @@ module BabyTooth
   class User < Client
     def initialize(access_token)
       super access_token, '/user'
-
-      @profile = Profile.new(access_token, self['profile'])
     end
+
+    def profile
+      @profile ||= Profile.new(access_token, self['profile'])
+    end
+
   end
 
   class Profile < Client
