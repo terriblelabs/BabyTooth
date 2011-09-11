@@ -53,8 +53,21 @@ class TestBabyTooth < Test::Unit::TestCase
         config.redirect_uri = "http://my.app/authorization"
       end
 
-      assert_equal "http://runkeeper.com/apps/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=http%3A%2F%2Fmy.app%2Fauthorization",
+      assert_equal "http://runkeeper.com/apps/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=http%3A%2F%2Fmy.app%2Fauthorization&state=",
         BabyTooth.authorize_url
+    end
+
+    should "return a URL with the proper parameters including the passed in state" do
+      BabyTooth.configure do |config|
+        config.access_token_url = "http://runkeeper.com/apps/token"
+        config.authorization_url = "http://runkeeper.com/apps/authorize"
+        config.client_secret = "SECRET"
+        config.client_id = "CLIENT_ID"
+        config.redirect_uri = "http://my.app/authorization"
+      end
+
+      assert_equal "http://runkeeper.com/apps/authorize?response_type=code&client_id=CLIENT_ID&redirect_uri=http%3A%2F%2Fmy.app%2Fauthorization&state=this%20is%20a%20test",
+        BabyTooth.authorize_url('this is a test')
     end
   end
 

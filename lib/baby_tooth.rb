@@ -6,13 +6,14 @@ require 'baby_tooth/user'
 require 'baby_tooth/profile'
 require 'baby_tooth/fitness_activity_feed'
 require 'baby_tooth/fitness_activity'
+require 'baby_tooth/street_team'
 
 module BabyTooth
   class << self
     attr_accessor :configuration
 
-    def authorize_url
-      oauth_client.auth_code.authorize_url :redirect_uri => configuration.redirect_uri
+    def authorize_url(state = nil)
+      oauth_client.auth_code.authorize_url :redirect_uri => configuration.redirect_uri, :state => state
     end
 
     def configure
