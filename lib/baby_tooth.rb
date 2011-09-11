@@ -6,6 +6,7 @@ require 'baby_tooth/user'
 require 'baby_tooth/profile'
 require 'baby_tooth/fitness_activity_feed'
 require 'baby_tooth/fitness_activity'
+require 'baby_tooth/team_feed'
 
 module BabyTooth
   class << self
