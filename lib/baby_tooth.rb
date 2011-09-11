@@ -44,13 +44,23 @@ module BabyTooth
       self.class.name.split('::').last
     end
 
+    def self.exposes_keys(*keys)
+      keys.each do |key|
+        define_method key do
+          body[key.to_s]
+        end
+      end
+    end
+
     protected
 
     def retrieve!
-      @body = connection.get(path) do |request|
+      response = connection.get(path) do |request|
         request.headers['Authorization'] = "Bearer #{access_token}"
         request.headers['Accept'] = "application/vnd.com.runkeeper.#{resource_class_name}+json"
-      end.body
+      end
+
+      @body = JSON.parse(response.body)
     end
 
     def connection
@@ -66,10 +76,18 @@ module BabyTooth
     def profile
       @profile ||= Profile.new(access_token, self['profile'])
     end
-
   end
 
   class Profile < Client
+    exposes_keys "name",
+      "small_picture",
+      "large_picture",
+      "medium_picture",
+      "elite",
+      "gender",
+      "athlete_type",
+      "normal_picture",
+      "profile"
   end
 
   private
