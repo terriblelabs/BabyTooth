@@ -1,0 +1,55 @@
+--- 
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.runkeeper.com:80/user
+    body: 
+    headers: 
+      accept: 
+      - application/vnd.com.runkeeper.User+json
+      authorization: 
+      - Bearer TEST_TOKEN
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - application/vnd.com.runkeeper.user+json;charset=ISO-8859-1
+      content-language: 
+      - en-US
+      server: 
+      - Apache-Coyote/1.1
+      date: 
+      - Sun, 11 Sep 2011 20:59:17 GMT
+      content-length: 
+      - "379"
+    body: "{\"strength_training_activities\":\"/strengthTrainingActivities\",\"weight\":\"/weight\",\"settings\":\"/settings\",\"diabetes\":\"/diabetes\",\"team\":\"/team\",\"sleep\":\"/sleep\",\"fitness_activities\":\"/fitnessActivities\",\"userID\":1625209,\"nutrition\":\"/nutrition\",\"general_measurements\":\"/generalMeasurements\",\"background_activities\":\"/backgroundActivities\",\"records\":\"/records\",\"profile\":\"/profile\"}"
+    http_version: "1.1"
+- !ruby/struct:VCR::HTTPInteraction 
+  request: !ruby/struct:VCR::Request 
+    method: :get
+    uri: http://api.runkeeper.com:80/team
+    body: 
+    headers: 
+      accept: 
+      - application/vnd.com.runkeeper.TeamFeed+json
+      authorization: 
+      - Bearer TEST_TOKEN
+  response: !ruby/struct:VCR::Response 
+    status: !ruby/struct:VCR::ResponseStatus 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - application/vnd.com.runkeeper.teamfeed+json;charset=ISO-8859-1
+      content-language: 
+      - en-US
+      server: 
+      - Apache-Coyote/1.1
+      date: 
+      - Sun, 11 Sep 2011 20:59:17 GMT
+      content-length: 
+      - "1158"
+    body: "{\"items\":[{\"name\":\"Ryan Palmer\",\"url\":\"/team/1649313\",\"profile\":\"http://www.runkeeper.com/user/RyanP724\"},{\"name\":\"Cort Johnson\",\"url\":\"/team/1426969\",\"profile\":\"http://www.runkeeper.com/user/cort\"},{\"name\":\"Jake Boxer\",\"url\":\"/team/1900138\",\"profile\":\"http://www.runkeeper.com/user/jboxer\"},{\"name\":\"Nicolas Warren\",\"url\":\"/team/1219339\",\"profile\":\"http://www.runkeeper.com/user/Nicolaswarren\"},{\"name\":\"Nick\",\"url\":\"/team/387603\",\"profile\":\"http://www.runkeeper.com/user/NickHerbold\"},{\"name\":\"Jake Cacciapaglia\",\"url\":\"/team/992916\",\"profile\":\"http://www.runkeeper.com/user/JakeCacci\"},{\"name\":\"Tom Boates\",\"url\":\"/team/50885\",\"profile\":\"http://www.runkeeper.com/user/tomboates\"},{\"name\":\"Sarah Hodges\",\"url\":\"/team/1520437\",\"profile\":\"http://www.runkeeper.com/user/SHodges\"},{\"name\":\"Dwayne Harris\",\"url\":\"/team/1261047\",\"profile\":\"http://www.runkeeper.com/user/djsstrat\"},{\"name\":\"Carlos Rodarte\",\"url\":\"/team/6472900\",\"profile\":\"http://www.runkeeper.com/user/crodarte\"},{\"url\":\"/team/2955498\",\"profile\":\"http://www.runkeeper.com/user/semanticart\"},{\"name\":\"Ryan Neu\",\"url\":\"/team/6421590\",\"profile\":\"http://www.runkeeper.com/user/ryanRneu\"}],\"size\":12}"
+    http_version: "1.1"

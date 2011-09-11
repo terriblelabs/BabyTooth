@@ -32,7 +32,9 @@ Gem::Specification.new do |s|
     "lib/baby_tooth/profile.rb",
     "lib/baby_tooth/team_feed.rb",
     "lib/baby_tooth/user.rb",
+    "test/fixtures/vcr_cassettes/fitness_activities.yml",
     "test/fixtures/vcr_cassettes/oauth/token_success.yml",
+    "test/fixtures/vcr_cassettes/street_team.yml",
     "test/helper.rb",
     "test/test_baby_tooth.rb"
   ]

@@ -21,7 +21,10 @@ WebMock.disable_net_connect!
 VCR.config do |config|
   config.cassette_library_dir = 'test/fixtures/vcr_cassettes'
   config.stub_with :webmock
-  config.default_cassette_options = { :record => :none }
+  config.default_cassette_options = {
+    :record => :none,
+    :match_requests_on => [:method, :uri, :headers]
+  }
 end
 
 require 'baby_tooth'
