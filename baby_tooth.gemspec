@@ -26,6 +26,11 @@ Gem::Specification.new do |s|
     "VERSION",
     "baby_tooth.gemspec",
     "lib/baby_tooth.rb",
+    "lib/baby_tooth/client.rb",
+    "lib/baby_tooth/fitness_activity.rb",
+    "lib/baby_tooth/fitness_activity_feed.rb",
+    "lib/baby_tooth/profile.rb",
+    "lib/baby_tooth/user.rb",
     "test/fixtures/vcr_cassettes/oauth/token_success.yml",
     "test/helper.rb",
     "test/test_baby_tooth.rb"
@@ -42,6 +47,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<oauth2>, ["~> 0.5.0"])
       s.add_runtime_dependency(%q<faraday-stack>, [">= 0"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -53,6 +59,7 @@ Gem::Specification.new do |s|
     else
       s.add_dependency(%q<oauth2>, ["~> 0.5.0"])
       s.add_dependency(%q<faraday-stack>, [">= 0"])
+      s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -65,6 +72,7 @@ Gem::Specification.new do |s|
   else
     s.add_dependency(%q<oauth2>, ["~> 0.5.0"])
     s.add_dependency(%q<faraday-stack>, [">= 0"])
+    s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
