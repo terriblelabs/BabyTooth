@@ -1,5 +1,6 @@
 require 'oauth2'
 require 'faraday_stack'
+require 'json'
 
 module BabyTooth
   class << self
@@ -28,16 +29,18 @@ module BabyTooth
 
   class Client
     attr_accessor :access_token, :path
-    attr_reader :body
 
     def [](key)
       body[key]
     end
 
+    def body
+      @body ||= retrieve_body
+    end
+
     def initialize(access_token, path)
       self.access_token = access_token
       self.path = path
-      retrieve!
     end
 
     def resource_class_name
@@ -54,13 +57,13 @@ module BabyTooth
 
     protected
 
-    def retrieve!
+    def retrieve_body
       response = connection.get(path) do |request|
         request.headers['Authorization'] = "Bearer #{access_token}"
         request.headers['Accept'] = "application/vnd.com.runkeeper.#{resource_class_name}+json"
       end
 
-      @body = JSON.parse(response.body)
+      JSON.parse(response.body)
     end
 
     def connection
@@ -69,8 +72,14 @@ module BabyTooth
   end
 
   class User < Client
+    exposes_keys 'fitness_activities'
+
     def initialize(access_token)
       super access_token, '/user'
+    end
+
+    def fitness_activity_feed
+      @fitness_activity_feed ||= FitnessActivityFeed.new(access_token, fitness_activities)
     end
 
     def street_team
@@ -94,14 +103,17 @@ module BabyTooth
       "profile"
   end
 
-  class TeamFeed < Client
-    def initialize(access_token)
-      super access_token, '/team'
-    end
+  class FitnessActivityFeed < Client
+    exposes_keys "items"
 
-    def members
-      body['items']
+    def fitness_activities
+      items.map do |item|
+        FitnessActivity.new access_token, item['uri']
+      end
     end
+  end
+
+  class FitnessActivity < Client
   end
 
   private
