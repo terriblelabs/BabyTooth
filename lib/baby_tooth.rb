@@ -30,7 +30,9 @@ module BabyTooth
     attr_accessor :access_token, :path
     attr_reader :body
 
-    delegate :[], :to => :body
+    def [](key)
+      body[key]
+    end
 
     def initialize(access_token, path)
       self.access_token = access_token
