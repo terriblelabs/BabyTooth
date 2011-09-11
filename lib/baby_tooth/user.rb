@@ -11,7 +11,7 @@ module BabyTooth
     end
 
     def street_team
-      @street_team ||= TeamFeed.new(access_token).members
+      @street_team ||= TeamFeed.new(access_token, self['team']).members
     end
 
     def profile
