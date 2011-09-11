@@ -48,3 +48,5 @@ pkg
 #*.rbc
 #
 Gemfile.lock
+
+*.orig
