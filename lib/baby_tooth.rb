@@ -73,6 +73,10 @@ module BabyTooth
       super access_token, '/user'
     end
 
+    def street_team
+      @street_team ||= TeamFeed.new(access_token).members
+    end
+
     def profile
       @profile ||= Profile.new(access_token, self['profile'])
     end
@@ -88,6 +92,16 @@ module BabyTooth
       "athlete_type",
       "normal_picture",
       "profile"
+  end
+
+  class TeamFeed < Client
+    def initialize(access_token)
+      super access_token, '/team'
+    end
+
+    def members
+      body['items']
+    end
   end
 
   private
