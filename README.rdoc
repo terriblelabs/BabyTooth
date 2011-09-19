@@ -1,8 +1,7 @@
-= HealthGrapher
+= BabyTooth
 
-Description goes here.
+A Ruby wrapper to Runkeeper's HealthGraph API
 
-== Contributing to HealthGrapher
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
@@ -12,8 +11,33 @@ Description goes here.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
+== Installation
+
+  gem install baby_tooth
+
+== Configuration
+
+In a file somewhere (an initializer
+
+== Examples
+
+  require 'baby_tooth'
+  
+  # Sign in
+  token = 'XXXXX"
+
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
 == Copyright
 
-Copyright (c) 2011 Joe Lind. See LICENSE.txt for
+Copyright (c) 2011 Terrible Labs. See LICENSE.txt for
 further details.
-
